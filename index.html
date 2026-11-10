@@ -176,7 +176,7 @@ function AVP(root){
   ytApi().then(YT=>{S.yt=new YT.Player(f,{events:{onReady:()=>{S.ytOk=true;ytMute();if(S.want){S.want=false;go()}},
    onAutoplayBlocked:()=>{if(isYT()&&!S.up&&S.st==='wait'){forceMute();S.yt.playVideo()}},
    onStateChange:e=>{const s=e.data,prev=S.ys;S.ys=s;if(!isYT())return;
-    if(s===1){S.st='play';S.played=true;S.wd=0;clearTimeout(S.fb);if(prev!==1)bezel(4600)}
+    if(s===1){S.st='play';S.played=true;S.wd=0;clearTimeout(S.fb);if(prev!==1)bezel(5200)}
     else if(s===2){if(S.up||S.st!=='wait')S.st='pause'}
     else if(s===0){S.st='end';ui();times();return next()}
     else if(s===3&&!S.up){S.st='wait';S.wt=Date.now()}
