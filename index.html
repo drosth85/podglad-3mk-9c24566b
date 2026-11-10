@@ -182,7 +182,8 @@ function AVP(root){
  v.addEventListener('playing',()=>{S.st='play';ui()});v.addEventListener('pause',()=>{if(!v.ended&&cur().k==='mp4'){S.st='pause';ui()}});
  v.addEventListener('waiting',()=>{if(S.st==='play'){S.st='wait';ui()}});v.addEventListener('ended',()=>{if(cur().k==='mp4'){S.st='end';ui();next()}});
  v.addEventListener('timeupdate',times);v.addEventListener('loadedmetadata',times);setInterval(()=>{if(cur().k==='yt'&&S.ytOk)times()},250);
- scr.addEventListener('click',e=>{if(e.target.closest('.avp-bar,.avp-ext'))return;S.st==='play'||S.st==='wait'?pause():go()});
+ scr.addEventListener('click',()=>{S.st==='play'||S.st==='wait'?pause():go()});
+ $('.avp-bar').addEventListener('click',e=>e.stopPropagation());ext.addEventListener('click',e=>e.stopPropagation());  // ui() podmienia ikonę w trakcie kliknięcia
  pp.onclick=()=>{S.st==='play'||S.st==='wait'?pause():go()};
  function seekF(f){if(cur().k==='mp4'){if(v.duration)v.currentTime=f*v.duration}else if(S.ytOk){S.yt.seekTo(f*S.yt.getDuration(),true)}times()}
  prog.addEventListener('pointerdown',e=>{const r=prog.getBoundingClientRect(),mv=ev=>seekF(Math.min(1,Math.max(0,(ev.clientX-r.left)/r.width)));
