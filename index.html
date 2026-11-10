@@ -17,24 +17,68 @@ table.pi{border-collapse:collapse;background:#fff;width:100%;max-width:700px}tab
 .thumbs{grid-area:th}.stage{grid-area:st}.info{grid-area:in}.bul{grid-area:bu}
 .thumbs{display:flex;flex-direction:column;gap:6px}.th{width:62px;height:62px;object-fit:contain;border:1px solid #ccc;border-radius:4px;cursor:pointer;background:#fff}
 .th.on{border-color:#e77600;box-shadow:0 0 3px #e77600}
-.vth{display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:20px;color:#333}.vth span{font-size:9px;font-weight:700}
-.yth{position:relative;padding:0;overflow:hidden;color:#fff}.yth img{width:100%;height:100%;object-fit:cover;display:block}
-.yth i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:18px;background:rgba(0,0,0,.25)}
-.yth span{position:absolute;left:0;right:0;bottom:0;background:#c00;font-size:8px;font-weight:700;text-align:center;line-height:12px}
-.stage{position:relative}.stage img,.stage video,.stage iframe{width:100%;aspect-ratio:1;object-fit:contain;background:#fff;border:0;display:block}
-.stage iframe{aspect-ratio:16/9;background:#000}
-.ytc{position:relative;display:block;width:100%;max-width:960px;aspect-ratio:16/9;background:#000;overflow:hidden}.ytc img{width:100%;height:100%;object-fit:cover;aspect-ratio:auto}
-.ytc i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:64px;color:#fff;text-shadow:0 2px 12px #000}
-.ytc em{position:absolute;left:0;right:0;bottom:0;background:rgba(200,0,0,.9);color:#fff;font-style:normal;font-weight:700;font-size:13px;padding:6px 10px}
-.ytlab{margin-top:8px;font-size:12px;background:#fff4e5;border:1px solid #f0c27b;border-radius:6px;padding:6px 8px;color:#7a4b00}
+.vwrap{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;flex:none}
+.vtile{position:relative;overflow:hidden;padding:0;background:#000}.vtile img{width:100%;height:100%;object-fit:cover;display:block}
+.vtile i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.vtile i svg{width:24px;height:24px;fill:#fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.7))}
+.vwrap:hover .vtile{border-color:#e77600;box-shadow:0 0 3px #e77600}
+.vlab{font-size:11px;font-weight:700;color:var(--ink);white-space:nowrap}
+.stage{position:relative}.stage img{width:100%;aspect-ratio:1;object-fit:contain;background:#fff;border:0;display:block}
 h1{font-size:22px;font-weight:400;margin:0 0 4px;line-height:1.3}.hl{color:var(--mut)}.brand{color:var(--link);font-size:13px}
 .var{margin:10px 0 0;font-size:14px}.var .chip{display:inline-block;border:2px solid #e77600;border-radius:8px;padding:6px 10px;margin-top:6px;background:#fff}
 .var a{color:var(--link);font-size:13px;margin-left:8px}
 ul.b{padding-left:18px}ul.b li{margin-bottom:6px}.meta{font-size:12px;color:var(--mut);margin-top:6px}
 h2{font-size:18px;margin:28px 0 10px}.box{background:#fff;border-radius:6px;padding:14px}
-.box video{width:100%;max-width:960px;display:block}.box iframe{width:100%;max-width:960px;aspect-ratio:16/9;border:0;display:block}
 .aplus{background:#fff;border-radius:6px;padding:14px 0}.aplus img{width:100%;max-width:1464px;display:block;margin:0 auto}
 .desc{background:#fff;padding:14px;border-radius:6px}
+/* wideo: odtwarzacz w stylu Amazona z kolejką */
+body.noscroll{overflow:hidden}
+.vmod{position:fixed;inset:0;z-index:50;background:rgba(15,17,17,.62);display:flex;align-items:center;justify-content:center;padding:24px}
+.vmod[hidden]{display:none}
+.vmod-in{background:#fff;border-radius:8px;width:min(1180px,100%);max-height:100%;overflow:auto;box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.vmod-hd{display:flex;align-items:center;border-bottom:1px solid #ddd;padding:0 8px 0 18px;height:46px}
+.vmod-hd span{font-weight:700;font-size:15px;border-bottom:3px solid #e77600;padding:12px 2px 9px}
+.vmod-x{margin-left:auto;border:0;background:none;font-size:28px;cursor:pointer;color:#565959;line-height:1;padding:4px 10px}
+.avp{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:18px;padding:18px}
+.avp-scr{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden;user-select:none;-webkit-user-select:none}
+.avp-scr:fullscreen{aspect-ratio:auto;width:100vw;height:100vh}
+.avp-v{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
+.avp-yt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000}
+.avp-ytin{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden}
+.avp-scr:fullscreen .avp-ytin{width:min(100vw,177.78vh)}
+.avp-ytin iframe{position:absolute;left:0;top:-100%;width:100%;height:300%;border:0;pointer-events:none}
+.avp [hidden]{display:none!important}
+.avp-cov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.avp-cov img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.avp-cov.img img{display:block}.avp-cov.off{display:none}
+.avp-big{position:relative;width:68px;height:68px;border-radius:50%;background:rgba(0,0,0,.55);border:2px solid #fff;display:flex;align-items:center;justify-content:center}
+.avp-big svg{width:32px;height:32px;fill:#fff;margin-left:4px}
+.avp-cov.wait .avp-big{background:none;border:4px solid rgba(255,255,255,.3);border-top-color:#fff;animation:avpspin .8s linear infinite}
+.avp-cov.wait .avp-big svg{display:none}
+@keyframes avpspin{to{transform:rotate(360deg)}}
+.avp-ext{position:absolute;left:0;right:0;bottom:48px;text-align:center;color:#fff;font-size:12px;background:rgba(0,0,0,.6);padding:5px 8px}
+.avp-ttl{position:absolute;left:0;right:0;top:0;padding:10px 14px 26px;background:linear-gradient(rgba(0,0,0,.65),transparent);color:#fff;font-size:15px;font-weight:700;pointer-events:none;transition:opacity .3s}
+.avp-bar{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:8px;padding:20px 10px 8px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-size:12px;transition:opacity .3s}
+@media(hover:hover){.avp-scr.playing:not(:hover) .avp-bar,.avp-scr.playing:not(:hover) .avp-ttl{opacity:0}}
+.avp-bar button{background:none;border:0;cursor:pointer;padding:4px;display:flex}.avp-bar svg{width:22px;height:22px;fill:#fff}
+.avp-t{white-space:nowrap;font-variant-numeric:tabular-nums;min-width:78px}
+.avp-prog{flex:1;height:18px;position:relative;cursor:pointer;touch-action:none}
+.avp-prog:before{content:"";position:absolute;left:0;right:0;top:7px;height:4px;background:rgba(255,255,255,.35);border-radius:2px}
+.avp-fill{position:absolute;left:0;top:7px;height:4px;background:#ff9900;border-radius:2px;width:0}
+.avp-knob{position:absolute;top:3px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#fff;left:0}
+.avp-side{min-width:0}.avp-h{font-weight:700;font-size:16px;margin:0 0 8px}
+.avp-it{display:flex;gap:10px;padding:8px;border-radius:6px;cursor:pointer;border:2px solid transparent;margin-bottom:6px}
+.avp-it:hover{background:#f7f7f7}.avp-it.on{border-color:#e77600;background:#fff8f0}
+.avp-th{position:relative;flex:none;width:132px;aspect-ratio:16/9;background:#000;border-radius:4px;overflow:hidden}
+.avp-th img{width:100%;height:100%;object-fit:cover;display:block}
+.avp-th b{position:absolute;right:4px;bottom:4px;background:rgba(0,0,0,.8);color:#fff;font-size:11px;padding:1px 4px;border-radius:3px}
+.avp-it-t{font-size:14px;font-weight:700;line-height:1.3}.avp-it-b{font-size:12px;color:var(--mut);margin-top:3px}
+.avp-now{display:none;font-size:11px;font-weight:700;color:#c45500;margin-top:3px}.avp-it.on .avp-now{display:block}
+.vcards{display:flex;gap:18px;flex-wrap:wrap}.vcard{width:300px;cursor:pointer}.vcard .avp-th{width:100%}
+.vcard .avp-th i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.vcard .avp-th i svg{width:44px;height:44px;fill:#fff;filter:drop-shadow(0 1px 4px rgba(0,0,0,.7))}
+.vcard:hover .avp-it-t{color:#c45500}
+@media(max-width:800px){.avp{grid-template-columns:1fr;padding:0 0 12px}.avp-side{padding:0 12px}.vmod{padding:0}.vmod-in{border-radius:0}}
 @media(max-width:900px){.flow{grid-template-columns:1fr 1fr}.pdp{grid-template-columns:1fr;grid-template-areas:"in" "st" "th" "bb" "bu"}.thumbs{flex-direction:row;overflow-x:auto}}
 .mode{position:sticky;top:0;z-index:9;background:#232f3e;padding:8px 16px;display:flex;gap:8px;align-items:center;color:#fff;font-size:13px;flex-wrap:wrap}
 .mode button{border:0;border-radius:16px;padding:6px 16px;cursor:pointer;font-weight:700;background:#3a4553;color:#fff}
@@ -45,17 +89,20 @@ body.mob .wrap{padding:8px} body.mob .flow{display:none} body.mob h2.flowh{displ
 body.mob .pdp{grid-template-columns:1fr;padding:10px;gap:10px}
 body.mob .pdp{grid-template-areas:"in" "st" "th" "bb" "bu";grid-template-rows:none} body.mob .thumbs{flex-direction:row;overflow-x:auto;margin:8px 0}
 body.mob .th{width:46px;height:46px;flex:none} body.mob h1{font-size:16px}
-body.mob .aplus{padding:0} body.mob .box video,body.mob .box iframe{max-width:100%}
+body.mob .aplus{padding:0}
 body.mob table.pi th{width:45%}
 body.mob{overflow-x:hidden} body.mob .pdp>*{min-width:0} body.mob .mode span{display:none}
+body.mob .vmod{padding:0}body.mob .vmod-in{width:390px;border-radius:0;max-height:100%}
+body.mob .avp{grid-template-columns:1fr;padding:0 0 12px}body.mob .avp-side{padding:0 12px}
+body.mob .vcard{width:100%}
 </style></head><body>
 <div class="mode">Podgląd: <button id="bD" class="on">Desktop</button><button id="bM">Mobile (aplikacja)</button>
 <span style="opacity:.7">mobile = makieta 390 px, galeria przewijana, A+ w wersji 600×450</span></div>
 <div class="page"><header>amazon<span>.de</span> · przykładowy wariant, pełny podgląd listingu (makieta z prawdziwych plików)</header>
 <div class="wrap">
-<h2 class="flowh" style="margin-top:0">Flow budowania listingu · 3MK-BS-W-BSCeDiL-VWGDP24</h2><div class="flow"><div class="st ok"><b>1</b><div><div class="sn">Treść</div><div class="sd">tytuł, bullety, opis DE wariantu (z rodziny)</div><code>INPUT/listingi/3mk_bladeshield_vw_de.json</code></div></div><div class="st ok"><b>2</b><div><div class="sn">Galeria</div><div class="sd">7 zdjęć 1600 px (MAIN + PT01-PT06)</div><code>OUTPUT/listing-vw/przyklad_3MK-BS-W-BSCeDiL-VWGDP24/galeria/</code></div></div><div class="st ok"><b>3</b><div><div class="sn">A+</div><div class="sd">7 modułów 1464×600 + 7 mobile 600×450, wspólne dla rodziny</div><code>OUTPUT/listing-vw/aplus/</code></div></div><div class="st ok"><b>4</b><div><div class="sn">Wideo</div><div class="sd">nasze PL (podgląd) i DE (amazon.de) gotowe; montaż 3mk: brak MP4</div><code>OUTPUT/listing-vw/wideo/</code></div></div><div class="st ok"><b>5</b><div><div class="sn">Compliance</div><div class="sd">GPSR PDF wariantu</div><code>OUTPUT/compliance/</code></div></div><div class="st todo"><b>6</b><div><div class="sn">Flat file</div><div class="sd">DRAFT bez szablonu konta 3mk Automotive</div><code>OUTPUT/listing-vw/vw_bladeshield_DE_flatfile_DRAFT.xlsx</code></div></div><div class="st blk"><b>7</b><div><div class="sn">Wgranie</div><div class="sd">BLOKADA: Brand Registry 3mk (rola konta 3mk Automotive)</div><code>Seller Central</code></div></div></div>
+<h2 class="flowh" style="margin-top:0">Flow budowania listingu · 3MK-BS-W-BSCeDiL-VWGDP24</h2><div class="flow"><div class="st ok"><b>1</b><div><div class="sn">Treść</div><div class="sd">tytuł, bullety, opis DE wariantu (z rodziny)</div><code>INPUT/listingi/3mk_bladeshield_vw_de.json</code></div></div><div class="st ok"><b>2</b><div><div class="sn">Galeria</div><div class="sd">7 zdjęć 1600 px (MAIN + PT01-PT06)</div><code>OUTPUT/listing-vw/przyklad_3MK-BS-W-BSCeDiL-VWGDP24/galeria/</code></div></div><div class="st ok"><b>3</b><div><div class="sn">A+</div><div class="sd">7 modułów 1464×600 + 7 mobile 600×450, wspólne dla rodziny</div><code>OUTPUT/listing-vw/aplus/</code></div></div><div class="st ok"><b>4</b><div><div class="sn">Wideo</div><div class="sd">nasze PL (podgląd) i DE (amazon.de) gotowe; montaż 3mk w podglądzie z YouTube, do wgrania na Amazon potrzebny MP4 od 3mk</div><code>OUTPUT/listing-vw/wideo/</code></div></div><div class="st ok"><b>5</b><div><div class="sn">Compliance</div><div class="sd">GPSR PDF wariantu</div><code>OUTPUT/compliance/</code></div></div><div class="st todo"><b>6</b><div><div class="sn">Flat file</div><div class="sd">DRAFT bez szablonu konta 3mk Automotive</div><code>OUTPUT/listing-vw/vw_bladeshield_DE_flatfile_DRAFT.xlsx</code></div></div><div class="st blk"><b>7</b><div><div class="sn">Wgranie</div><div class="sd">BLOKADA: Brand Registry 3mk (rola konta 3mk Automotive)</div><code>Seller Central</code></div></div></div>
 <div class="pdp">
- <div class="thumbs"><img class="th" data-k="img" data-src="galeria/MAIN_1600.jpg" src="galeria/MAIN_1600.jpg" alt="MAIN"><img class="th" data-k="img" data-src="galeria/PT01_1600.jpg" src="galeria/PT01_1600.jpg" alt="PT01"><img class="th" data-k="img" data-src="galeria/PT02_1600.jpg" src="galeria/PT02_1600.jpg" alt="PT02"><img class="th" data-k="img" data-src="galeria/PT03_1600.jpg" src="galeria/PT03_1600.jpg" alt="PT03"><img class="th" data-k="img" data-src="galeria/PT04_1600.jpg" src="galeria/PT04_1600.jpg" alt="PT04"><img class="th" data-k="img" data-src="galeria/PT05_1600.jpg" src="galeria/PT05_1600.jpg" alt="PT05"><img class="th" data-k="img" data-src="galeria/PT06_1600.jpg" src="galeria/PT06_1600.jpg" alt="PT06"><div class="th vth" data-k="vid" data-src="wideo/3MK-BS-VW-PL_BladeShield_VW_wideo_PL_muzyka.mp4" title="Wideo 3mk BladeShield (PL)">▶<span>WIDEO PL</span></div><div class="th yth" data-k="yt" data-src="https://www.youtube-nocookie.com/embed/vHH3mI2VIr8" title="Film montażu 3mk z YouTube"><img src="https://img.youtube.com/vi/vHH3mI2VIr8/hqdefault.jpg" alt=""><i>▶</i><span>3mk YouTube</span></div></div>
+ <div class="thumbs"><img class="th" data-k="img" data-src="galeria/MAIN_1600.jpg" src="galeria/MAIN_1600.jpg" alt="MAIN"><img class="th" data-k="img" data-src="galeria/PT01_1600.jpg" src="galeria/PT01_1600.jpg" alt="PT01"><img class="th" data-k="img" data-src="galeria/PT02_1600.jpg" src="galeria/PT02_1600.jpg" alt="PT02"><img class="th" data-k="img" data-src="galeria/PT03_1600.jpg" src="galeria/PT03_1600.jpg" alt="PT03"><img class="th" data-k="img" data-src="galeria/PT04_1600.jpg" src="galeria/PT04_1600.jpg" alt="PT04"><img class="th" data-k="img" data-src="galeria/PT05_1600.jpg" src="galeria/PT05_1600.jpg" alt="PT05"><img class="th" data-k="img" data-src="galeria/PT06_1600.jpg" src="galeria/PT06_1600.jpg" alt="PT06"><div class="vwrap" data-vid="0" title="Videos"><div class="th vtile"><img src="wideo/klatka_1_tytul_pl_1280.jpg" alt="" onerror="this.onerror=null;this.src='wideo/klatka_1_tytul_pl_1280.jpg'"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div><div class="vlab">2 Videos</div></div></div>
  <div class="stage" id="stage"></div>
  <div class="info"><div class="brand">Besuche den Store von 3mk</div>
   <h1>3mk Schutzfolie für VW Golf 8 Discover Pro (2020-2024), 10-Zoll-Navi</h1><div class="hl">1 Stück · BladeShield™ · Matt, Anti-Reflex · Passgenau per Laser · Touch auch mit Handschuhen</div>
@@ -65,25 +112,91 @@ body.mob{overflow-x:hidden} body.mob .pdp>*{min-width:0} body.mob .mode span{dis
  <div class="bb"><div class="pr"><sup>€</sup>30<sup>90</sup></div><div class="meta">Alle Preisangaben inkl. USt. (Preis BRUTTO, UVP 3mk)</div><div class="stk">Auf Lager</div><div class="meta">Versand durch Verkäufer</div><button class="cart">In den Einkaufswagen</button><button class="buy">Jetzt kaufen</button><div class="meta">Verkauf durch 3mk Automotive</div><div class="meta" style="border-top:1px solid #ddd;margin-top:8px;padding-top:6px">flat file: Versand durch Händler (Standard); stan i szablon wysyłki: do decyzji</div></div>
  <div class="bul"><h3 style="margin:14px 0 0;font-size:16px">Über diesen Artikel</h3><ul class="b"><li><b>[ACHTUNG] NUR FÜR 10-ZOLL-NAVI-DISPLAYS:</b> Bitte prüfen Sie vor dem Kauf die Bildschirmgröße und das System in Ihrem Fahrzeug (Discover Pro). Discover Pro und Discover Media sowie Navi und Tacho haben unterschiedliche Displayformen. Folien für weitere Displays finden Sie in der Variantenauswahl.</li><li><b>KOMPATIBILITÄT:</b> Kompatibel mit VW Golf 8 (2020-2024), Navi-Display (Mittelkonsole), Discover Pro, 10 Zoll. Passgenau per Laser für dieses Display zugeschnitten, ohne Nachschneiden. Zubehör von 3mk Protection, kein Originalteil des Fahrzeugherstellers.</li><li><b>MATT STATT SPIEGEL:</b> Die matte Oberfläche von BladeShield™ reduziert Spiegelungen bei Sonne, damit Karte und Anzeigen gut lesbar bleiben. Die oleophobe Beschichtung reduziert Schlieren und Fingerabdrücke, das Display ist schnell gereinigt.</li><li><b>TOUCH WIE AB WERK, FÜR HITZE UND FROST:</b> Das Display reagiert wie gewohnt auf Berührungen, auch mit Handschuhen. Die Folie ist UV-beständig, bleibt bei extremen Temperaturen stabil und löst sich nicht an den Kanten.</li><li><b>EINFACHE MONTAGE OHNE BLASEN:</b> Die 4-lagige Struktur von BladeShield™ erleichtert das Anbringen, Luftblasen verschwinden nach der Montage. Lieferumfang: Schutzfolie, Installationsset, Rakel und Montageanleitung.</li></ul></div>
 </div>
-<h2>Wideo produktowe <small style="font-weight:400;color:#c45500">· nie z flat file'a, wgrywasz osobno</small></h2><div class="box"><video controls preload="metadata" src="wideo/3MK-BS-VW-PL_BladeShield_VW_wideo_PL_muzyka.mp4" poster="wideo/klatka_1_tytul_pl.png"></video><div class="meta">3MK-BS-VW-PL_BladeShield_VW_wideo_PL_muzyka.mp4 (wersja PL do podglądu). Na amazon.de wgrywamy wersję DE: 3MK-BS-VW-DE_BladeShield_VW_wideo_DE_muzyka.mp4. W Seller Central: Katalog, Prześlij filmy i zarządzaj nimi.</div></div><h2>Film montażu 3mk <small style="font-weight:400;color:#c45500">· YouTube, tylko podgląd</small></h2><div class="box"><div class="ytslot" data-src="https://www.youtube-nocookie.com/embed/vHH3mI2VIr8"></div><div class="ytlab">Film 3mk z YouTube „3mk MOTIO BladeShield™ · Jak zamontować?” (2:19, napisy PL). Do wgrania na Amazon potrzebny plik MP4 od 3mk (najlepiej bez wypalonych napisów PL).</div></div>
+<h2>Videos</h2><div class="box"><div class="avp-h">Videos für dieses Produkt</div><div class="vcards"><div class="vcard" data-vid="0"><div class="avp-th"><img src="wideo/klatka_1_tytul_pl_1280.jpg" alt="" onerror="this.onerror=null;this.src='wideo/klatka_1_tytul_pl_1280.jpg'"><b>0:36</b><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div><div class="avp-it-t" style="margin-top:6px">3mk BladeShield Displayschutz für VW</div><div class="avp-it-b">3mk Protection</div></div><div class="vcard" data-vid="1"><div class="avp-th"><img src="https://img.youtube.com/vi/vHH3mI2VIr8/maxresdefault.jpg" alt="" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/vHH3mI2VIr8/hqdefault.jpg'"><b>2:19</b><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div><div class="avp-it-t" style="margin-top:6px">BladeShield Montage</div><div class="avp-it-b">3mk Protection</div></div></div><div class="meta" style="font-size:11px;margin-top:10px">Podgląd: film 1 to wersja PL (3MK-BS-VW-PL_BladeShield_VW_wideo_PL_muzyka.mp4), na amazon.de wgrywamy DE (3MK-BS-VW-DE_BladeShield_VW_wideo_DE_muzyka.mp4). Film 2 (montaż 3mk) odtwarzany z YouTube; do wgrania na Amazon potrzebny plik MP4 od 3mk. Wideo nie idzie z flat file'a: Seller Central, Katalog, Prześlij filmy i zarządzaj nimi.</div></div>
 <h2>Od producenta (A+ Premium) <small style="font-weight:400;color:#c45500">· nie z flat file'a, wgrywasz osobno w A+ Content Manager; wspólne dla 58 wariantów (Navi i Tacho), więc moduły A01-A03 wspominają też Tacho</small></h2>
 <div class="aplus"><img class="ap" src="aplus/A01_1464x600.jpg" data-d="aplus/A01_1464x600.jpg" data-m="aplus/A01_600x450.jpg" alt=""><img class="ap" src="aplus/A02_1464x600.jpg" data-d="aplus/A02_1464x600.jpg" data-m="aplus/A02_600x450.jpg" alt=""><img class="ap" src="aplus/A03_1464x600.jpg" data-d="aplus/A03_1464x600.jpg" data-m="aplus/A03_600x450.jpg" alt=""><img class="ap" src="aplus/A04_1464x600.jpg" data-d="aplus/A04_1464x600.jpg" data-m="aplus/A04_600x450.jpg" alt=""><img class="ap" src="aplus/A05_1464x600.jpg" data-d="aplus/A05_1464x600.jpg" data-m="aplus/A05_600x450.jpg" alt=""><img class="ap" src="aplus/A06_1464x600.jpg" data-d="aplus/A06_1464x600.jpg" data-m="aplus/A06_600x450.jpg" alt=""><img class="ap" src="aplus/A07_1464x600.jpg" data-d="aplus/A07_1464x600.jpg" data-m="aplus/A07_600x450.jpg" alt=""></div>
 <h2>Produktinformationen</h2><table class="pi"><tr><th>Marke</th><td>3mk</td></tr><tr><th>Hersteller</th><td>3mk Protection</td></tr><tr><th>Modellnummer</th><td>W-BSCeDiL-VWGDP24</td></tr><tr><th>Modellname</th><td>Golf 8 Discover Pro 10 Zoll (2020-2024) · Navi</td></tr><tr><th>Farbe</th><td>Transparent</td></tr><tr><th>Anzahl der Artikel</th><td>1</td></tr><tr><th>Kompatibles Fahrzeug</th><td>VW Golf 8 (2020-2024)</td></tr><tr><th>Garantie</th><td>24 Monate Herstellergarantie</td></tr><tr><th>Lieferumfang</th><td>Schutzfolie BladeShield, Installationsset, Rakel, Montageanleitung</td></tr><tr><th>EAN</th><td>5903108769204</td></tr><tr><th>SKU</th><td>3MK-BS-W-BSCeDiL-VWGDP24</td></tr><tr><th>ASIN</th><td>noch keine (neuer ASIN nach dem Upload)</td></tr><tr><th>Produktsicherheit (GPSR)</th><td><a href="compliance/3MK-BS-W-BSCeDiL-VWGDP24_3mk_W-BSCeDiL-VWGDP24_Safety_Information_5903108769204_bezASIN_DE.pdf">Sicherheitsinformationen (PDF)</a></td></tr></table>
 <h2>Produktbeschreibung</h2><div class="desc"><b>3mk BladeShield™ Schutzfolie für VW Golf 8 (2020-2024), Navi-Display (Mittelkonsole), Discover Pro, 10 Zoll</b><br>Sonne macht das Display zum Spiegel? Die matte Schutzfolie BladeShield™ von 3mk Protection reduziert Spiegelungen, damit Sie die Route sehen und nicht die Spiegelung. Sie ist per Laser exakt für dieses Display zugeschnitten und lässt sich wie ab Werk bedienen, auch mit Handschuhen.<br><br><b>Technische Daten</b><br><li>Typ: Displayschutzfolie, matt</li><li>Kompatibilität: VW Golf 8 (2020-2024), Navi-Display (Mittelkonsole), Discover Pro, 10 Zoll</li><li>Oberfläche: matt, Anti-Reflex, oleophobe Beschichtung</li><li>Beständigkeit: UV-Strahlung, Hitze und Frost; Kanten lösen sich nicht</li><li>Funktionen: Touch wie ab Werk, auch mit Handschuhen</li><li>Montage: 4-lagige Struktur, blasenfreie Montage, Laserzuschnitt</li><br><b>Lieferumfang</b><br><li>Schutzfolie BladeShield™</li><li>Installationsset</li><li>Rakel</li><li>Montageanleitung</li><br>Bitte prüfen Sie vor dem Kauf Größe und System Ihres Displays. Zubehör von 3mk Protection, kein Originalteil des Fahrzeugherstellers.</div>
 </div></div>
-<script>
-const st=document.getElementById('stage'),th=[...document.querySelectorAll('.th')];
-const YTID='vHH3mI2VIr8',FILE=location.protocol==='file:';
-function yt(s,auto){return FILE?`<a class="ytc" href="https://www.youtube.com/watch?v=${YTID}" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/${YTID}/hqdefault.jpg" alt=""><i>▶</i><em>Otwórz na YouTube (z pliku lokalnego YouTube blokuje osadzenie)</em></a>`
- :`<iframe src="${s}?rel=0${auto?'&autoplay=1':''}" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="3mk Montage"></iframe>`;}
-document.querySelectorAll('.ytslot').forEach(e=>e.innerHTML=yt(e.dataset.src,0));
-const YTN='<div class="ytlab">Film montażu 3mk z YouTube (wersja PL), tylko podgląd. Do wgrania na Amazon potrzebny plik MP4 od 3mk.</div>';
-function show(t){th.forEach(x=>x.classList.remove('on'));t.classList.add('on');const k=t.dataset.k,s=t.dataset.src;
- st.innerHTML=k==='vid'?`<video controls autoplay src="${s}"></video>`:k==='yt'?yt(s,1)+YTN:`<img src="${s}">`;}
-th.forEach(t=>t.addEventListener('mouseenter',()=>{if(t.dataset.k==='img')show(t)}));th.forEach(t=>t.addEventListener('click',()=>show(t)));show(th[0]);
+<div class="vmod" id="vmod" hidden><div class="vmod-in" role="dialog" aria-label="Videos"><div class="vmod-hd"><span>Videos</span><button class="vmod-x" aria-label="Schließen">×</button></div><div class="avp" id="avpM"></div></div></div>
+<script>const VIDS=[{"k": "mp4", "src": "wideo/3MK-BS-VW-PL_BladeShield_VW_wideo_PL_muzyka.mp4", "title": "3mk BladeShield Displayschutz für VW", "by": "3mk Protection", "dur": "0:36", "secs": 36.5, "poster": "wideo/klatka_1_tytul_pl_1280.jpg", "poster2": "wideo/klatka_1_tytul_pl_1280.jpg"}, {"k": "yt", "id": "vHH3mI2VIr8", "title": "BladeShield Montage", "by": "3mk Protection", "dur": "2:19", "secs": 139, "poster": "https://img.youtube.com/vi/vHH3mI2VIr8/maxresdefault.jpg", "poster2": "https://img.youtube.com/vi/vHH3mI2VIr8/hqdefault.jpg"}];
+
+const st=document.getElementById('stage'),th=[...document.querySelectorAll('.th[data-k="img"]')];
+const FILE=location.protocol==='file:';
+function show(t){th.forEach(x=>x.classList.remove('on'));t.classList.add('on');st.innerHTML=`<img src="${t.dataset.src}">`;}
+th.forEach(t=>t.addEventListener('mouseenter',()=>show(t)));th.forEach(t=>t.addEventListener('click',()=>show(t)));if(th.length)show(th[0]);
 function mode(m){document.body.classList.toggle('mob',m);bD.classList.toggle('on',!m);bM.classList.toggle('on',m);
  document.querySelectorAll('img.ap').forEach(i=>i.src=m?i.dataset.m:i.dataset.d);try{localStorage.setItem('podgladMob',m?'1':'')}catch(e){}}
 bD.onclick=()=>mode(false);bM.onclick=()=>mode(true);
 try{if(localStorage.getItem('podgladMob'))mode(true)}catch(e){}
 if(location.hash==='#mobile')mode(true);
+
+/* odtwarzacz wideo w stylu Amazona: kolejka VIDS, własne kontrolki dla mp4 i YouTube */
+const IC={play:'<path d="M8 5v14l11-7z"/>',pause:'<path d="M6 5h4v14H6zm8 0h4v14h-4z"/>',
+ vol:'<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4z"/>',
+ mute:'<path d="M3 9v6h4l5 5V4L7 9H3zm18.7.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4-2.7-2.7z"/>',
+ fs:'<path d="M5 5h5v2H7v3H5zm9 0h5v5h-2V7h-3zM5 14h2v3h3v2H5zm12 3v-3h2v5h-5v-2z"/>'};
+const svg=p=>`<svg viewBox="0 0 24 24">${p}</svg>`;
+const fmt=t=>{t=Math.max(0,Math.floor(t||0));return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')};
+let ytP=null;
+function ytApi(){if(ytP)return ytP;ytP=new Promise(r=>{if(window.YT&&YT.Player)return r(YT);const prev=window.onYouTubeIframeAPIReady;
+ window.onYouTubeIframeAPIReady=()=>{prev&&prev();r(YT)};const s=document.createElement('script');s.src='https://www.youtube.com/iframe_api';document.head.appendChild(s)});return ytP}
+function AVP(root){
+ const thumb=v=>`<img src="${v.poster}" alt="" onerror="this.onerror=null;this.src='${v.poster2}'"><b>${v.dur}</b>`;
+ root.innerHTML=`<div class="avp-scr"><video class="avp-v" playsinline preload="metadata"></video><div class="avp-yt" hidden><div class="avp-ytin"></div></div>
+ <div class="avp-cov img"><img alt=""><div class="avp-big">${svg(IC.play)}</div><a class="avp-ext" target="_blank" rel="noopener" hidden></a></div>
+ <div class="avp-ttl"></div><div class="avp-bar"><button class="avp-pp" aria-label="Play"></button><span class="avp-t">0:00 / 0:00</span>
+ <div class="avp-prog"><div class="avp-fill"></div><div class="avp-knob"></div></div><button class="avp-mu" aria-label="Ton"></button><button class="avp-fs" aria-label="Vollbild">${svg(IC.fs)}</button></div></div>
+ <div class="avp-side"><div class="avp-h">Videos für dieses Produkt</div>${VIDS.map((v,i)=>`<div class="avp-it" data-i="${i}"><div class="avp-th">${thumb(v)}</div>
+ <div><div class="avp-it-t">${v.title}</div><div class="avp-it-b">${v.by}</div><div class="avp-now">Wird abgespielt</div></div></div>`).join('')}</div>`;
+ const $=s=>root.querySelector(s),scr=$('.avp-scr'),v=$('.avp-v'),ytb=$('.avp-yt'),cov=$('.avp-cov'),cimg=cov.querySelector('img'),ext=$('.avp-ext'),
+  ttl=$('.avp-ttl'),pp=$('.avp-pp'),tm=$('.avp-t'),prog=$('.avp-prog'),fill=$('.avp-fill'),knob=$('.avp-knob'),mu=$('.avp-mu'),items=[...root.querySelectorAll('.avp-it')];
+ const S={i:0,yt:null,ytOk:false,mk:false,want:false,muted:false,started:false,st:'idle',fb:0};
+ const cur=()=>VIDS[S.i];
+ function ui(){const p=S.st==='play';scr.classList.toggle('playing',p);pp.innerHTML=svg(p?IC.pause:IC.play);cov.classList.toggle('off',p);
+  cov.classList.toggle('img',cur().k==='yt'||!S.started||S.st==='end');cov.classList.toggle('wait',S.st==='wait');mu.innerHTML=svg(S.muted?IC.mute:IC.vol)}
+ function times(){let c=0,d=0;if(cur().k==='mp4'){c=v.currentTime;d=v.duration}else if(S.ytOk){c=S.yt.getCurrentTime();d=S.yt.getDuration()}
+  d=d&&isFinite(d)?d:cur().secs;const f=d?Math.min(1,c/d):0;fill.style.width=f*100+'%';knob.style.left=f*100+'%';tm.textContent=fmt(c)+' / '+fmt(d)}
+ function next(){if(S.i<VIDS.length-1)load(S.i+1,true);else{S.st='end';ui()}}
+ function mkYT(id,title){if(S.mk)return;S.mk=true;const f=document.createElement('iframe');
+  const pv={enablejsapi:1,controls:0,rel:0,iv_load_policy:3,disablekb:1,playsinline:1,fs:0,modestbranding:1,cc_load_policy:0,autoplay:0,origin:location.origin};
+  f.src='https://www.youtube-nocookie.com/embed/'+id+'?'+new URLSearchParams(pv);f.allow='autoplay; encrypted-media; picture-in-picture';
+  f.referrerPolicy='strict-origin-when-cross-origin';f.title=title||cur().title;f.tabIndex=-1;ytb.firstChild.appendChild(f);
+  ytApi().then(YT=>{S.yt=new YT.Player(f,{events:{onReady:()=>{S.ytOk=true;if(S.muted)S.yt.mute();if(S.want){S.want=false;go()}},
+   onStateChange:e=>{if(cur().k!=='yt')return;const s=e.data;if(s===1){S.st='play';clearTimeout(S.fb)}else if(s===2){S.st='pause'}
+    else if(s===0){S.st='end';ui();return next()}else if(s===3&&S.st!=='pause'){S.st='wait'}ui();times()}}})})}
+ function go(){const x=cur();S.started=true;
+  if(x.k==='mp4'){S.st='wait';ui();v.play().catch(()=>{v.muted=S.muted=true;v.play().catch(()=>{S.st='pause';ui()})});return}
+  if(FILE){window.open(ext.href,'_blank');return}
+  S.st='wait';ui();if(!S.ytOk){S.want=true;mkYT(x.id);return}
+  S.yt.playVideo();clearTimeout(S.fb);S.fb=setTimeout(()=>{if(S.ytOk&&cur().k==='yt'&&S.yt.getPlayerState()!==1&&S.st==='wait'){S.muted=true;S.yt.mute();S.yt.playVideo();ui()}},2500)}
+ function pause(){if(cur().k==='mp4')v.pause();else if(S.ytOk)S.yt.pauseVideo();else S.want=false;if(S.st==='wait'){S.st='pause';ui()}}
+ function load(i,auto){if(S.ytOk)S.yt.pauseVideo();v.pause();S.i=i;S.started=false;S.st='idle';const x=cur();
+  items.forEach((e,j)=>e.classList.toggle('on',j===i));ttl.textContent=x.title;cimg.onerror=()=>{cimg.onerror=null;cimg.src=x.poster2};cimg.src=x.poster;ext.hidden=true;
+  if(x.k==='mp4'){ytb.hidden=true;v.hidden=false;v.muted=S.muted;v.poster=x.poster;v.src=x.src}
+  else{v.hidden=true;v.removeAttribute('src');v.load();ytb.hidden=false;
+   if(FILE){ext.hidden=false;ext.href='https://www.youtube.com/watch?v='+x.id;ext.textContent='Z pliku lokalnego YouTube blokuje osadzenie: kliknij, aby otworzyć film na YouTube'}
+   else if(S.ytOk){S.yt.cueVideoById(x.id)}else mkYT(x.id)}
+  ui();times();if(auto)go()}
+ v.addEventListener('playing',()=>{S.st='play';ui()});v.addEventListener('pause',()=>{if(!v.ended&&cur().k==='mp4'){S.st='pause';ui()}});
+ v.addEventListener('waiting',()=>{if(S.st==='play'){S.st='wait';ui()}});v.addEventListener('ended',()=>{if(cur().k==='mp4'){S.st='end';ui();next()}});
+ v.addEventListener('timeupdate',times);v.addEventListener('loadedmetadata',times);setInterval(()=>{if(cur().k==='yt'&&S.ytOk)times()},250);
+ scr.addEventListener('click',e=>{if(e.target.closest('.avp-bar,.avp-ext'))return;S.st==='play'||S.st==='wait'?pause():go()});
+ pp.onclick=()=>{S.st==='play'||S.st==='wait'?pause():go()};
+ function seekF(f){if(cur().k==='mp4'){if(v.duration)v.currentTime=f*v.duration}else if(S.ytOk){S.yt.seekTo(f*S.yt.getDuration(),true)}times()}
+ prog.addEventListener('pointerdown',e=>{const r=prog.getBoundingClientRect(),mv=ev=>seekF(Math.min(1,Math.max(0,(ev.clientX-r.left)/r.width)));
+  mv(e);try{prog.setPointerCapture(e.pointerId)}catch(_){}prog.onpointermove=mv;prog.onpointerup=()=>{prog.onpointermove=null}});
+ mu.onclick=()=>{S.muted=!S.muted;v.muted=S.muted;if(S.ytOk)S.muted?S.yt.mute():S.yt.unMute();ui()};
+ $('.avp-fs').onclick=()=>{if(document.fullscreenElement||document.webkitFullscreenElement)(document.exitFullscreen||document.webkitExitFullscreen).call(document);
+  else if(scr.requestFullscreen||scr.webkitRequestFullscreen)(scr.requestFullscreen||scr.webkitRequestFullscreen).call(scr);else if(v.webkitEnterFullscreen&&!v.hidden)v.webkitEnterFullscreen()};
+ items.forEach((e,j)=>e.onclick=()=>load(j,true));
+ if(!FILE){const y=VIDS.findIndex(x=>x.k==='yt');if(y>=0)setTimeout(()=>mkYT(VIDS[y].id,VIDS[y].title),300)}  // YouTube gotowy, zanim skończy się film 1
+ return {load,pause,go,seekF,S,cur}}
+const VM=document.getElementById('vmod');let MP=null;
+function openV(i){VM.hidden=false;document.body.classList.add('noscroll');if(!MP)MP=window.MP=AVP(document.getElementById('avpM'));MP.load(i,true)}
+function closeV(){VM.hidden=true;document.body.classList.remove('noscroll');if(MP)MP.pause()}
+VM.addEventListener('click',e=>{if(e.target===VM||e.target.closest('.vmod-x'))closeV()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!VM.hidden)closeV()});
+document.querySelectorAll('[data-vid]').forEach(e=>e.addEventListener('click',()=>openV(+e.dataset.vid)));
+if(!FILE)ytApi();
 </script></body></html>
